@@ -17,7 +17,7 @@ async function registration(req, res) {
         if (user) {
             return res.json({
                 user: user,
-                msg: 'User Created'
+                msg: 'User Registered Successfully'
             })
         }
         console.log(user)
@@ -65,7 +65,7 @@ async function loginUser(req, res) {
         }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return res.json({
+            return res.stauts(500).json({
                 msg: 'Password is incorrect'
             })
         }
