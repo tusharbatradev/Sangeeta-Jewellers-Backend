@@ -65,7 +65,7 @@ async function loginUser(req, res) {
         }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
-            return res.stauts(500).json({
+            return res.status(500).json({
                 msg: 'Password is incorrect'
             })
         }

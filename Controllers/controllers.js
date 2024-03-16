@@ -41,8 +41,8 @@ async function handleGetbyId(req, res) {
 async function handlePost(req,res){
     try {
         let body = req.body;
-        if (!body || !body.productName || !body.availability) {
-            res.json({
+        if (!body || body.productName === undefined || body.availability === undefined) {
+            res.status(422).json({
                 msg: "Missing Details"
             });
         } else {

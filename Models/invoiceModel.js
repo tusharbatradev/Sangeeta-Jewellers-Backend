@@ -55,7 +55,7 @@ const productSchema = new mongoose.Schema({
     },
     productAmount: {
         type: Number,
-        require: true
+        // require: true
     }
 })
 
