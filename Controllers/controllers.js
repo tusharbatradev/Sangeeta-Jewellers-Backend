@@ -75,6 +75,7 @@ async function handlePatch(req, res) {
         }
         res.json({
             id: id,
+            productName: body.productName,
             msg: 'Product Updated'
         })
     } catch (error) {
