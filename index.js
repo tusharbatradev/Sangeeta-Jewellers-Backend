@@ -1,6 +1,7 @@
 const express = require("express");
 const cors=require("cors");
 const app = express();
+require("dotenv").config();
 //Parse the body
 app.use(express.json());
 app.use(cors())
@@ -9,12 +10,10 @@ app.use(cors())
 const {ConnectMongodb} = require('./connection')
 
 // Mongo URL
-const mongoUrl = `mongodb+srv://tusharbatra08:tush12345@practise.beheei4.mongodb.net/?retryWrites=true&w=majority&appName=Practise`
+const mongoUrl = process.env.MONGODB_URL;
 
 // Connection MongoDB
 ConnectMongodb(mongoUrl)
-
-const port = 3001;
 
 // Importing Routers
 const productsRouter = require('./Routes/products');
@@ -27,6 +26,7 @@ app.use("/user",userRouter)
 app.use('/invoice',invoiceRouter)
 
 // Starting Server
+const port = process.env.PORT || 3000; 
 app.listen(port, () => console.log(`Server started on port ${port}`))
 
 

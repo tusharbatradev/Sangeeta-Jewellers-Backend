@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 const crypto = require('crypto')
 
-const secretKey = crypto.randomBytes(10).toString('hex')
+const secretKey = process.env.SECRET_KEY;
 module.exports = secretKey
 
 
